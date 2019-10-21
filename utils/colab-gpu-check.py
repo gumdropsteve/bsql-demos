@@ -1,28 +1,35 @@
+import pynvml
+
 def pull_gpu_id():
     """
     identify the instance's GPU type
         > or alert user this is not a GPU accelerated instance
     """
-    # tag specs
-    colab_smi = !nvidia-smi
-
-    # focus GPU type
+    # initialize pynvml
     try:
-        my_gpu = ' '.join(colab_smi[7].split()[2:4])
-        return my_gpu
-    # no GPU detected 
+        # will not work on non-gpu accelerated instnace
+        pynvml.nvmlInit()
+
+    # unable to initialize pynvml
     except:
-        raise Exception("NO GPU DETECTED Unable to run !nvidia-smi\n\n"
+        # no GPU detected 
+        raise Exception("NO GPU DETECTED\n\n"
                         "Please make sure you've configured Colab to request a GPU instance type.\n\n"
                         "At top of Colab, try: Runtime -> Change runtime type -> Hardware accelerator -> GPU -> Save\n")
 
+    # tag machine
+    handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+    # locate GPU type/name
+    device_name = pynvml.nvmlDeviceGetName(handle)
+    # output device name 
+    return device_name
     
 def colab_gpu_check(my_gpu, compatable_gpus):
     """
     determine if a given GPU is RAPIDS AI compatable
     """
     # allocated K80
-    if my_gpu == 'Tesla K80':
+    if my_gpu == b'Tesla K80':
         # assuming this is Google Colab
         raise Exception("\nYou've been allocated a K80 instance\n\n"
                         "Unfortunately, this demo requires a T4 instance\n\n"
@@ -42,7 +49,7 @@ def colab_gpu_check(my_gpu, compatable_gpus):
 
 if __name__ == '__main__':
     # known compatable GPUs
-    known_gpus = ['Tesla T4', 'Tesla P100-PCIE...']
+    known_gpus = [b'Tesla T4', b'Tesla P100-PCIE...', b'GeForce GTX']
     # identify GPU
     gpu = pull_gpu_id()
     # check GPU's compatablitiy 
