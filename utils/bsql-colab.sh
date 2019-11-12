@@ -1,6 +1,6 @@
 #!/bin/bash
 
-!wget https://raw.githubusercontent.com/gumdropsteve/bsql-demos/feature/utils/utils/colab_env.py
+wget https://raw.githubusercontent.com/gumdropsteve/bsql-demos/feature/utils/utils/colab_env.py
 echo "Checking for GPU type:"
 python colab_env.py
 
