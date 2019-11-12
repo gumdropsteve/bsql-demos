@@ -1,6 +1,4 @@
 import pynvml
-
-
 """
 check the colab environment for BlazingSQL and RAPIDS AI compatiblity
 prereqs:
