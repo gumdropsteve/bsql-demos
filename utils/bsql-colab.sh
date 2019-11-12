@@ -1,10 +1,10 @@
 #!/bin/bash
 
+set -eu
+
 wget https://raw.githubusercontent.com/gumdropsteve/bsql-demos/feature/utils/utils/colab_env.py
 echo "Checking for GPU type:"
 python colab_env.py
-
-set -eu
 
 if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
     echo "Removing conflicting packages, will replace with RAPIDS compatible versions"
