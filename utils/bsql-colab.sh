@@ -47,7 +47,3 @@ echo ""
 echo "*********************************************"
 echo "Your Google Colab instance is BlazingSQL ready!"
 echo "*********************************************"
-
-wget -nc https://github.com/gumdropsteve/bsql-demos/raw/feature/utils/utils/set_paths.py
-echo "Setting RAPIDS paths"
-python set_paths.py
