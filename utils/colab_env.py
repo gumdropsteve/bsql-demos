@@ -30,7 +30,7 @@ compatable_gpus = [b'Tesla P100-PCIE-16GB', b'Tesla T4']
 # check if allocated gpu is in list of known compatable GPUs
 if gpu_name in compatable_gpus:
   # we're blazing
-  print('Woo! You got the right kind of GPU!')
+  print(f'\n\n*********************************\nGPU = {gpu_name}\nWoo! You got the right kind of GPU!\n*********************************\n\n'
 # unacknowledged outcome
 else:
   # please let us know, thank you
