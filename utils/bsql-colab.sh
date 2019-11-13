@@ -2,10 +2,6 @@
 
 set -eu
 
-wget -nc https://github.com/gumdropsteve/bsql-demos/raw/feature/utils/utils/colab_env.py
-echo "Checking for GPU type:"
-python colab_env.py
-
 if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
     echo "Removing conflicting packages, will replace with RAPIDS compatible versions"
     # remove existing xgboost and dask installs
