@@ -34,8 +34,7 @@ if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
     cp /usr/local/lib/libxgboost.so /usr/lib/libxgboost.so
     cp /usr/local/lib/libnccl.so /usr/lib/libnccl.so
     # Install BlazingSQL for CUDA 10.0
-    conda install -q -y --prefix /usr/local -c conda-forge -c defaults -c nvidia -c rapidsai -c blazingsql/label/cuda10.0 -c blazingsql blazingsql-calcite blazingsql-orchestrator blazingsql-ral blazingsql-python
-    # conda install -y --prefix /usr/local -c rapidsai -c nvidia -c conda-forge -c felipeblazing/label/cuda10.0 python=3.6 cudatoolkit=10.0 blazingsql-ral blazingsql-orchestrator blazingsql-calcite blazingsql-python
+    conda install -y --prefix /usr/local -c rapidsai -c nvidia -c conda-forge -c felipeblazing/label/cuda10.0 python=3.6 cudatoolkit=10.0 blazingsql-ral blazingsql-orchestrator blazingsql-calcite blazingsql-python
 
 
     pip install flatbuffers
