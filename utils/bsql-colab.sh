@@ -2,7 +2,7 @@
 
 set -eu
 
-wget -nc https://github.com/gumdropsteve/bsql-demos/blob/feature/utils/utils/colab_env.py
+wget -nc https://github.com/gumdropsteve/bsql-demos/raw/feature/utils/utils/colab_env.py
 echo "Checking for GPU type:"
 python colab_env.py
 
