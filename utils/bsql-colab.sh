@@ -44,6 +44,8 @@ if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
             dask-cudf \
             xgboost
     
+    fi
+
     # install BlazingSQL
     echo "Installing BlazingSQL"
     echo "Please standby, this may take a few minutes..."
