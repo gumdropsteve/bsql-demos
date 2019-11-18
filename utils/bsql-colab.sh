@@ -43,15 +43,6 @@ if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
             cudf=$RAPIDS_VERSION cuml cugraph gcsfs pynvml \
             dask-cudf \
             xgboost
-    
-    fi
-
-    # install BlazingSQL
-    echo "Installing BlazingSQL"
-    echo "Please standby, this may take a few minutes..."
-    conda install -y --prefix /usr/local -c blazingsql/label/cuda10.0 -c blazingsql -c rapidsai -c conda-forge -c defaults blazingsql-calcite blazingsql-orchestrator blazingsql-ral blazingsql-python
-    pip install flatbuffers
-    
     fi
       
     echo "Copying shared object files to /usr/lib"
@@ -63,5 +54,15 @@ fi
 
 echo ""
 echo "*********************************************"
-echo "Your Google Colab instance is BlazingSQL + RAPIDS ready!"
+echo "Your Google Colab instance is RAPIDS ready!"
 echo "*********************************************"
+
+wget -nc https://github.com/gumdropsteve/bsql-demos/raw/gumdropsteve-patch-1/utils/blazingsql.sh
+echo "Installing BlazingSQL"
+echo "Please standby, this will take a few minutes..."
+bash blazingsql.sh
+
+echo ""
+echo "***********************************************"
+echo "Your Google Colab instance is BlazingSQL ready!"
+echo "***********************************************"
