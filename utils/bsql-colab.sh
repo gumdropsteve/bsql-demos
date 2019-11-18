@@ -29,7 +29,7 @@ if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
     # install RAPIDS packages
         conda install -y --prefix /usr/local \
                 -c rapidsai-nightly/label/xgboost -c rapidsai-nightly -c nvidia -c conda-forge \
-                python=3.6 cudatoolkit=10.1 \
+                python=3.7 cudatoolkit=10.1 \
                 cudf=$RAPIDS_VERSION cuml cugraph gcsfs pynvml \
                 dask-cudf \
                 xgboost
@@ -56,13 +56,3 @@ echo ""
 echo "*********************************************"
 echo "Your Google Colab instance is RAPIDS ready!"
 echo "*********************************************"
-
-wget -nc https://github.com/gumdropsteve/bsql-demos/raw/gumdropsteve-patch-1/utils/blazingsql.sh
-echo "Installing BlazingSQL"
-echo "Please standby, this will take a few minutes..."
-bash blazingsql.sh
-
-echo ""
-echo "***********************************************"
-echo "Your Google Colab instance is BlazingSQL ready!"
-echo "***********************************************"
