@@ -4,9 +4,9 @@ set -eu
 
 RAPIDS_VERSION="${1:-0.10}"
 
-wget -nc https://github.com/rapidsai/notebooks-contrib/raw/master/utils/env-check.py
+wget -nc https://github.com/gumdropsteve/bsql-demos/raw/colab/conda/utils/colab_env.py
 echo "Checking for GPU type:"
-python env-check.py
+python colab_env.py
 
 if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
     echo "Removing conflicting packages, will replace with RAPIDS compatible versions"
